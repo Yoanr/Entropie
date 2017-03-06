@@ -89,13 +89,25 @@ $(document).ready(function () {
 
 	$('.profil').click(function(e){
 		$('#lol').remove();
+
+		var values=0;
+		var longueur=0;
+		
 		var $data=$(this).closest("tr").attr("id");
-		$('#name').text($data);
+		if(!votes[$data]) {
+			return;
+		}
+		
 		$('#profile').append("<div id='lol'>");
+		$('#lol').append("<p  style='font-size: 250%;' id='name'></p>");
+		$('#name').text($data);
+		$('#lol').append("<p style='font-size: 250%;'id='score'></p>");
+
 		for(var i = 0, len = matieres.length; i < len; i++) {
 			$("#lol").append("<table class='table-striped'><thead><th>"+matieres[i]+"</th></thead><tbody id="+i+"></tbody></table>");
 			//$("#profile").append("<div id="+i+">"+matieres[i]+"</div>");
 			for(var j = 0, leng = votes[$data][matieres[i]].length; j < leng; j++) {
+				longueur++;
 
 				var value = Math.round(- Math.log(vote_global[matieres[i]][votes[$data][matieres[i]][j]])*100)/100;
 				
@@ -109,10 +121,12 @@ $(document).ready(function () {
 					color="red";
 				}
 				$("#"+i+"").append("<tr><td>"+votes[$data][matieres[i]][j]+" : "+"<p style=color:"+color+">"+value+"</p></td></tr>");
-
+				values+=value;
 			}
 		}
-
+		var moyenne = Math.round(values/longueur*100)/100;
+		console.log(moyenne);
+		$('#score').text("score :"+moyenne || " ");
 	});
 
 	
