@@ -1,20 +1,3 @@
-<?php
-
-
-//$json_source = file_get_contents('./public/data.json');
-
-//$tableau = array();
-
-//$tableau = json_decode($json_source,true);
-
-//for($i=0;$i<$tableau.length,$i++) {
-//$etudiant_name=key($tableau[$i]);
-//echo $etudiant_name;
-//}
-
-//echo "yoy";
-?>
-
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,10 +5,25 @@
  <title>
   Entropie
  </title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
+	<div class="row">
+		<div id="data" class="col-md-6">
+		</div>
+		<div id="profile" class="col-md-4">
+			<p  style='font-size: 250%;'id="name"></p>
+
+		</div>
+		<div id="profile" class="col-md-2">
+
+		</div>
+	</div>
 </body>
  <script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=pagerank.js"></script>
+ <script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=logins.js"></script>
  <script type="text/javascript" src="jquery.js"></script>
  <script type="text/javascript" src="entropie.js"></script>
+
 </html>
